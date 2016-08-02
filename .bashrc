@@ -120,19 +120,31 @@ export PS1="\[\e[36;1m\]\u@\[\e[32;1m\]\h:\[\e[31;1m\]\w:> \[\e[0m\]"
 #location shortcuts
 
 #git
-export Rocket=$HOME/git/rocket-chip-test/rocket/src/main/scala
-export Riscv_tools=$HOME/git/rocket-chip-test/riscv-tools
+export Rocket=$HOME/git/rocket-chip/rocket/src/main/scala
+export Emulator=$HOME/git/rocket-chip/emulator
+export FPGA=$HOME/git/rocket-chip/fpga-zynq/zc706
+
 #Svnroots
 export Svnroot=$HOME/svnroot
 export Branch=$Svnroot/projects/typedarch/branches/gitae
 export Typedisa=$Svnroot/projects/typedarch/branches/gitae/typedisa
 export Gem5=$Typedisa/gem5/src/
-export Papers=$Svnroot/papers/micro16_typed
+export Papers=$Svnroot/papers/asplos16_typed
 
-export RISCV=/home/papl-gt/git/rocket-chip-test/riscv
-export PATH=/home/papl-gt/git/rocket-chip-test/riscv/bin:$PATH
-export PATH=$PATH:/home/papl-gt/svnroot/projects/typedarch/branches/gitae/typedisa/compilers/alphaev67-unknown-linux-gnu/bin
+#RISCV & Vivado
+
+export RISCV=/home/papl-gt/git/rocket-chip/riscv
+export PATH=$PATH:$RISCV/bin
+#export PATH=/home/papl-gt/git/rocket/riscv/bin:$PATH
+#export PATH=$PATH:/home/papl-gt/svnroot/projects/typedarch/branches/gitae/typedisa/compilers/alphaev67-unknown-linux-gnu/bin
 export GEM5=/home/papl-gt/svnroot/projects/typedarch/branches/gitae/typedisa/gem5
+
+
+export PATH=/opt/Xilinx/Vivado/2015.2/bin:$PATH
+export PATH=/opt/Xilinx/SDK/2015.2/bin:$PATH
+export PATH=/opt/Xilinx/SDK/2015.2/gnu/arm/lin/bin:$PATH
+export PATH=/home/papl-gt/Downloads/Xilinx_Vivado_SDK_Lin_2015.2_0612_1/tps/lnx64/jre/bin:$PATH 
+#export PATH=/home/papl-gt/git/rocket-chip/fpga-zynq/common/linux-xlnx/scripts/dtc:$PATH && dtc -I dts -O dtb -o deliver_output/devicetree.dtb soft_config/zc706_devicetree.dts
 
 alias gem5alpha="$GEM5/build/ALPHA/gem5.opt $GEM5/configs/example/se.py --cpu-type=MinorCPU --caches --l2cache --l1i_size='16kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=4 --l2_size='128kB' --l2_assoc=8"
 
@@ -142,4 +154,6 @@ alias gem5papl="$GEM5/build/ALPHA/gem5.opt --debug-flags=Papl $GEM5/configs/exam
 
 alias open='gnome-open' 
 
-
+alias scp-fpga="scp test_1 root@115.145.211.112:/home/root/sdcard"
+alias fpga="ssh root@115.145.211.112"
+alias emulator="./emulator-Top-DefaultCPPConfig +dramsim2_ini +verbose pk /home/papl-gt/svnroot/projects/typedarch/branches/gitae/icmiss_test/test_1 2> test.log"

@@ -49,6 +49,8 @@ set tags+=/home/papl-gt/svnroot/projects/typedarch/branches/namho/typedisa/lua-5
 set tags+=/home/papl-gt/svnroot/projects/typedarch/branches/gitae/typedisa/gem5/src/tags
 set tags+=/home/papl-gt/svnroot/projects/typedarch/branches/gitae/typedisa/gem5/build/tags
 set tags+=/home/papl-gt/svnroot/projects/typedarch/branches/gitae/typedisa/lua-5.3.0/src/tags
+set tags+=/home/papl-gt/svnroot/projects/typedarch/branches/gitae/lua-5.3.0/src/tags
+set tags+=/home/papl-gt/git/rocket-chip/rocket/src/main/scala/tags
 
 augroup Filetype
 	au!
@@ -83,14 +85,15 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set t_Co=256
-colorscheme molokai
+" colorscheme molokai
+ colorscheme peachpuff 
 set colorcolumn=80
 
 hi SpecialKey       ctermfg=239
 hi Statement        ctermfg=161                     cterm=bold
 hi StatusLine       ctermfg=233     ctermbg=251     cterm=none
 hi StatusLineNC     ctermfg=234     ctermbg=251
-hi Visual                           ctermbg=8		cterm=none
+hi Visual							ctermbg=8		cterm=none
 hi Normal           ctermfg=15      ctermbg=232
 hi Comment          ctermfg=244
 hi CursorLine                       ctermbg=232	    cterm=underline
