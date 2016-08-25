@@ -59,6 +59,7 @@ augroup Filetype
 	au BufRead,BufNewFile	*.td						set filetype=tablegen
 	au BufRead,BufNewFile	*.rst						set filetype=rest
 	au BufRead,BufNewFile	*.html						set filetype=html
+	au BufRead,BufNewFile	*.scala						set filetype=scala
 	au BufRead,BufNewFile	*.tex						set filetype=tex
 	au BufRead,BufNewFile	*.md						set filetype=markdown
 	au BufRead,BufNewFile	*.{gnuplot,gp}				set filetype=gnuplot
@@ -125,7 +126,7 @@ let t:Space=" "
 
 augroup AutoComment
 	au!
-	au FileType c,cpp,verilog,php,javascript,html,idl,opencl,css
+	au FileType c,cpp,verilog,php,javascript,html,idl,opencl,css,scala
 				\ let t:Comment='//'      |
 				\ let t:Uncomment='\/\/'
 	au FileType asm,sh,python,bash,ruby,perl
