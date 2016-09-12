@@ -85,6 +85,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
+alias lll='ls -alh'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -120,10 +121,10 @@ export PS1="\[\e[36;1m\]\u@\[\e[32;1m\]\h:\[\e[31;1m\]\w:> \[\e[0m\]"
 #location shortcuts
 
 #git
-export Rocket=$Branch/rocket-chip-checkedload/rocket/src/main/scala
-export Emulator=$Branch/rocket-chip-checkedload/emulator
-export FPGA=$HOME/git/rocket-chip/fpga-zynq/zc706
-export CN=$Svnroot/projects/typedarch/branches/channoh/rocket-chip-checkedload4lua
+export Rocket=$Branch/rocket-chip-checkedload4js/rocket/src/main/scala
+export Emulator=$Branch/rocket-chip-checkedload4js/emulator
+export FPGA=$HOME/git/rocket-chip-checkedload4js/fpga-zynq/zc706
+export CN=$Svnroot/projects/typedarch/branches/channoh/rocket-chip-checkedload4js/rocket/src/main/scala
 # export Rocket=$CN/rocket/src/main/scala
 # export Emulator=$CN/emulator
 # export FPGA=$CN/fpga-zynq/zc706
@@ -134,12 +135,14 @@ export Branch=$Svnroot/projects/typedarch/branches/gitae
 export Typedisa=$Svnroot/projects/typedarch/branches/gitae/typedisa
 export Gem5=$Typedisa/gem5/src/
 export Papers=$Svnroot/papers/asplos17_typed
-export Lua=/home/papl-gt/svnroot/projects/typedarch/branches/namho/ASPLOS2016/checkedload/lua-5.3.0/src
-export JS=/home/papl-gt/svnroot/projects/typedarch/branches/namho/ASPLOS2016/checkedload/mozjs17.0.0/js/src
+export Lua=$Branch/riscv-checkedload/lua-5.3.0/src
+export JS=$Branch/riscv-checkedload/mozjs17.0.0/js/src
+# export Lua=/home/papl-gt/svnroot/projects/typedarch/branches/namho/ASPLOS2016/checkedload/lua-5.3.0/src
+# export JS=/home/papl-gt/svnroot/projects/typedarch/branches/namho/ASPLOS2016/checkedload/mozjs17.0.0/js/src
 
 #RISCV & Vivado
 
-export RISCV=$Branch/rocket-chip-checkedload/riscv
+export RISCV=$Branch/rocket-chip-checkedload4js/riscv
 export PATH=$PATH:$RISCV/bin
 #export PATH=/home/papl-gt/git/rocket/riscv/bin:$PATH
 #export PATH=$PATH:/home/papl-gt/svnroot/projects/typedarch/branches/gitae/typedisa/compilers/alphaev67-unknown-linux-gnu/bin
@@ -160,7 +163,10 @@ alias gem5papl="$GEM5/build/ALPHA/gem5.opt --debug-flags=Papl $GEM5/configs/exam
 
 alias open='gnome-open' 
 
-alias scp-fpga="scp test_1 root@115.145.211.112:/home/root/sdcard"
-alias fpga="ssh root@115.145.211.112"
+alias SVN="ssh gitae1021@147.46.174.167"
+alias tmux-open="tmux attach -t 0"
+
+# alias scp-fpga="scp test_1 root@115.145.211.112:/home/root/sdcard"
+# alias fpga="ssh root@115.145.211.112"
 alias emulator="./emulator-Top-DefaultCPPConfig +dramsim2_ini +verbose pk /home/papl-gt/svnroot/projects/typedarch/branches/gitae/icmiss_test/test_1 2> test.log"
-alias NH="ssh gimnamho@115.145.211.197"
+# alias NH="ssh gimnamho@115.145.211.197"
