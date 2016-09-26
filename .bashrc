@@ -123,14 +123,15 @@ export PS1="\[\e[36;1m\]\u@\[\e[32;1m\]\h:\[\e[31;1m\]\w:> \[\e[0m\]"
 #git
 export Rocket=$Branch/rocket-chip-checkedload4js/rocket/src/main/scala
 export Emulator=$Branch/rocket-chip-checkedload4js/emulator
-export FPGA=$HOME/git/rocket-chip-checkedload4js/fpga-zynq/zc706
+export FPGA=$Branch/rocket-chip-checkedload4js/fpga-zynq/zc706
 export CN=$Svnroot/projects/typedarch/branches/channoh/rocket-chip-checkedload4js/rocket/src/main/scala
 # export Rocket=$CN/rocket/src/main/scala
 # export Emulator=$CN/emulator
 # export FPGA=$CN/fpga-zynq/zc706
 
 #Svnroots
-export Svnroot=$HOME/svnroot
+export Home2=/media/arc-gt/a0e83a30-376a-453e-a853-97531be6b81d
+export Svnroot=$Home2/svnroot
 export Branch=$Svnroot/projects/typedarch/branches/gitae
 export Typedisa=$Svnroot/projects/typedarch/branches/gitae/typedisa
 export Gem5=$Typedisa/gem5/src/
@@ -146,13 +147,13 @@ export RISCV=$Branch/rocket-chip-checkedload4js/riscv
 export PATH=$PATH:$RISCV/bin
 #export PATH=/home/papl-gt/git/rocket/riscv/bin:$PATH
 #export PATH=$PATH:/home/papl-gt/svnroot/projects/typedarch/branches/gitae/typedisa/compilers/alphaev67-unknown-linux-gnu/bin
-export GEM5=/home/papl-gt/svnroot/projects/typedarch/branches/gitae/typedisa/gem5
+export GEM5=$svnroot/projects/typedarch/branches/gitae/typedisa/gem5
 
 
 export PATH=/opt/Xilinx/Vivado/2015.2/bin:$PATH
 export PATH=/opt/Xilinx/SDK/2015.2/bin:$PATH
 export PATH=/opt/Xilinx/SDK/2015.2/gnu/arm/lin/bin:$PATH
-export PATH=/home/papl-gt/Downloads/Xilinx_Vivado_SDK_Lin_2015.2_0612_1/tps/lnx64/jre/bin:$PATH 
+export PATH=/home/arc-gt/Downloads/Xilinx_Vivado_SDK_Lin_2015.2_0612_1/tps/lnx64/jre/bin:$PATH 
 #export PATH=/home/papl-gt/git/rocket-chip/fpga-zynq/common/linux-xlnx/scripts/dtc:$PATH && dtc -I dts -O dtb -o deliver_output/devicetree.dtb soft_config/zc706_devicetree.dts
 
 alias gem5alpha="$GEM5/build/ALPHA/gem5.opt $GEM5/configs/example/se.py --cpu-type=MinorCPU --caches --l2cache --l1i_size='16kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=4 --l2_size='128kB' --l2_assoc=8"
@@ -163,10 +164,14 @@ alias gem5papl="$GEM5/build/ALPHA/gem5.opt --debug-flags=Papl $GEM5/configs/exam
 
 alias open='gnome-open' 
 
-alias SVN="ssh gitae1021@147.46.174.167"
-alias tmux-open="tmux attach -t 0"
+alias SVN="ssh gitae1021@147.46.219.120"
 
-# alias scp-fpga="scp test_1 root@115.145.211.112:/home/root/sdcard"
-# alias fpga="ssh root@115.145.211.112"
+alias scp-fpga="scp js17 root@147.46.174.221:/home/root/sdcard/papl"
+alias fpga="ssh root@147.46.174.221"
 alias emulator="./emulator-Top-DefaultCPPConfig +dramsim2_ini +verbose pk /home/papl-gt/svnroot/projects/typedarch/branches/gitae/icmiss_test/test_1 2> test.log"
 # alias NH="ssh gimnamho@115.145.211.197"
+
+#tmux
+export TERM=xterm-256color
+alias tmux="tmux -2"
+alias tmux-open="tmux attach -t 0"

@@ -43,14 +43,7 @@ au BufRead *
 			\    exe "norm g'\"" |
 			\ endif
 
-
-set tags=/home/papl-gt/git/rocket-chip/rocket/tags
-set tags+=/home/papl-gt/svnroot/projects/typedarch/branches/namho/typedisa/lua-5.3.0/src/tags
-set tags+=/home/papl-gt/svnroot/projects/typedarch/branches/gitae/typedisa/gem5/src/tags
-set tags+=/home/papl-gt/svnroot/projects/typedarch/branches/gitae/typedisa/gem5/build/tags
-set tags+=/home/papl-gt/svnroot/projects/typedarch/branches/gitae/typedisa/lua-5.3.0/src/tags
-set tags+=/home/papl-gt/svnroot/projects/typedarch/branches/gitae/lua-5.3.0/src/tags
-set tags+=/home/papl-gt/git/rocket-chip/rocket/src/main/scala/tags
+set tags+=./tags;$HOME
 
 augroup Filetype
 	au!
@@ -86,8 +79,8 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set t_Co=256
-" colorscheme molokai
- colorscheme peachpuff 
+colorscheme molokai
+" colorscheme peachpuff 
 set colorcolumn=80
 
 hi SpecialKey       ctermfg=239
