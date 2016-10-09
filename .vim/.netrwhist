@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/home/arc-gt/svnroot/projects/typedarch/branches/gitae/rocket-chip-checkedload4lua/rocket/src/main/scala'
+let g:netrw_dirhist_2='/home/arc-gt/svnroot/projects/typedarch/branches/gitae/rocket-chip-checkedload4js/riscv'
+let g:netrw_dirhist_3='/media/arc-gt/a0e83a30-376a-453e-a853-97531be6b81d/svnroot/projects/typedarch/branches/chkld_riscv/mozjs17.0.0/js/src/riscv-elf-typed/shell'
+let g:netrw_dirhist_4='/home/arc-gt/.vim/syntax'
