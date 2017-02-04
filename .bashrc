@@ -118,51 +118,66 @@ export PS1="\[\e[36;1m\]\u@\[\e[32;1m\]\h:\[\e[31;1m\]\w:> \[\e[0m\]"
 
 #location shortcuts
 
+export PATH=/usr/local/texlive/2016/bin/x86_64-linux/":$PATH"
 #Svnroots
 export Home2=/media/arc-gt/a0e83a30-376a-453e-a853-97531be6b81d
 export Svnroot=$Home2/svnroot
-export Branch=$Svnroot/projects/typedarch/branches/gitae
-export Typedisa=$Svnroot/projects/typedarch/branches/gitae/typedisa
-export CN=$Svnroot/projects/typedarch/branches/channoh/
-export Gem5=$Typedisa/gem5/src/
-export Papers=$Svnroot/papers/
-export Lua=$Branch/typed/lua-5.3.0/src
-export JS=$Branch/typed/mozjs17.0.0/js/src
+export Branch=$Svnroot/projects/typedarch/branches
+export GTbranch=$Svnroot/projects/typedarch/branches/gitae
+export CN=$Svnroot/projects/typedarch/branches/channoh
+# export Gem5=$Typedisa/gem5/src
+export Papers=$Svnroot/papers
+export trunks=$Svnroot/projects/typedarch/trunks
+export Synthesis=$Svnroot/projects/typedarch/trunks/synthesis
 
 #Vivado
 export PATH=/opt/Xilinx/Vivado/2015.2/bin:$PATH
 export PATH=/opt/Xilinx/SDK/2015.2/bin:$PATH
 export PATH=/opt/Xilinx/SDK/2015.2/gnu/arm/lin/bin:$PATH
 export PATH=/home/arc-gt/Downloads/Xilinx_Vivado_SDK_Lin_2015.2_0612_1/tps/lnx64/jre/bin:$PATH 
+
 #export PATH=/home/papl-gt/git/rocket-chip/fpga-zynq/common/linux-xlnx/scripts/dtc:$PATH && dtc -I dts -O dtb -o deliver_output/devicetree.dtb soft_config/zc706_devicetree.dts
 
-#Rocket & Emulator & FPGA
-export Rocket=$Branch/typed/rocket-chip/rocket/src/main/scala
-export Emulator=$Branch/typed/rocket-chip/emulator
-export FPGA=$Branch/rocket-chip-checkedload4js/fpga-zynq/zc706
+#Rocket & Emulator & FPGA & Lua & JS
+# export Rocket=$CN/typed/rocket-chip/rocket/src/main/scala #Typed-CN
+# export Emulator=$CN/typed/rocket-chip/emulator
+# export FPGA=$CN/typed/rocket-chip/fpga-zynq/zc706
+# export Lua=$CN/typed/lua-5.3.0/src
+# export JS=$CN/typed/mozjs17.0.0/js/src
+export Rocket=$GTbranch/rocket-chip-final/rocket/src/main/scala # -CN
+export Emulator=$GTbranch/rocket-chip-final/emulator
+export FPGA=$GTbranch/rocket-chip-final/fpga-zynq/zc706
+export Lua=$GTbranch/lua-5.3.0-typed/src
+export JS= $GTbranch/mozjs17.0.0-typed/js/src
 
 #RISCV
 export PATH=$RISCV/bin:$PATH
-export RISCV=$Branch/typed/rocket-chip/riscv
-# export RISCV=$CN/typed/rocket-chip/riscv #CN branch
-# export RISCV=$Branch/rocket-chip-checkedload4js/riscv #Checked-load
-
-
-alias gem5alpha="$GEM5/build/ALPHA/gem5.opt $GEM5/configs/example/se.py --cpu-type=MinorCPU --caches --l2cache --l1i_size='16kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=4 --l2_size='128kB' --l2_assoc=8"
-
-alias gem5debug="$GEM5/build/ALPHA/gem5.opt --debug-flags=Exec,IntRegs,TagRegs $GEM5/configs/example/se.py --cpu-type=MinorCPU --caches --l2cache --l1i_size='16kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=4 --l2_size='128kB' --l2_assoc=8"
-
-alias gem5papl="$GEM5/build/ALPHA/gem5.opt --debug-flags=Papl $GEM5/configs/example/se.py --cpu-type=MinorCPU --caches --l2cache --l1i_size='16kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=4 --l2_size='128kB' --l2_assoc=8"
-
-alias open='gnome-open' 
-
-alias SVN="ssh gitae1021@147.46.219.120"
-
-alias scp-fpga="scp js17 root@147.46.174.221:/home/root/sdcard/papl"
-alias fpga="ssh root@147.46.174.221"
-alias emulator="./emulator-Top-DefaultCPPConfig +dramsim2_ini +verbose pk /home/papl-gt/svnroot/projects/typedarch/branches/gitae/icmiss_test/test_1 2> test.log"
+# export RISCV=$CN/typed/rocket-chip/riscv #unified Typedisa
+# export RISCV=$CN/rocket-chip-typed4js/riscv #old js ver typedisa
+# export RISCV=~/git/rocket/riscv #old lua ver typedisa
+# export RISCV=$trunks/rocket-chip/riscv #trunk
+# export RISCV=$CN/rocket-chip-checkedload4lua/riscv #Checked-load-lua
+# export RISCV=$CN/rocket-chip-checkedload4js/riscv #Checked-load-js
+# export RISCV=$Branch/asplos17/source/hw/rocket-chip-typed4lua/riscv #Checked-load-lua
+export RISCV=$GTbranch/rocket-chip-final/riscv #My branch rocket
 
 #tmux
 export TERM=xterm-256color
 alias tmux="tmux -2"
 alias tmux-open="tmux attach -t 0"
+
+#basic alias
+alias open='gnome-open' 
+alias SVN="ssh gitae1021@147.46.219.120"
+
+# alias dirdiff="vim -c DirDiff"/media/arc-gt/a0e83a30-376a-453e-a853-97531be6b81d/svnroot/projects/typedarch/branches/riscv/mozjs17.0.0/js/src/ /media/arc-gt/a0e83a30-376a-453e-a853-97531be6b81d/svnroot/projects/typedarch/branches/channoh/typed/mozjs17.0.0/js/src/""
+#Synthesis alias
+alias scp-synthesis="scp -P 2222 Top.DefaultVLSIConfig.v papl-s1@115.145.211.12:~"
+
+#gem5 alias
+# alias gem5alpha="$GEM5/build/ALPHA/gem5.opt $GEM5/configs/example/se.py --cpu-type=MinorCPU --caches --l2cache --l1i_size='16kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=4 --l2_size='128kB' --l2_assoc=8"
+
+# alias gem5debug="$GEM5/build/ALPHA/gem5.opt --debug-flags=Exec,IntRegs,TagRegs $GEM5/configs/example/se.py --cpu-type=MinorCPU --caches --l2cache --l1i_size='16kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=4 --l2_size='128kB' --l2_assoc=8"
+
+# alias gem5papl="$GEM5/build/ALPHA/gem5.opt --debug-flags=Papl $GEM5/configs/example/se.py --cpu-type=MinorCPU --caches --l2cache --l1i_size='16kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=4 --l2_size='128kB' --l2_assoc=8"
+
