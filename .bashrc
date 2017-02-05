@@ -148,7 +148,7 @@ export Rocket=$GTbranch/rocket-chip-final/rocket/src/main/scala # -CN
 export Emulator=$GTbranch/rocket-chip-final/emulator
 export FPGA=$GTbranch/rocket-chip-final/fpga-zynq/zc706
 export Lua=$GTbranch/lua-5.3.0-typed/src
-export JS= $GTbranch/mozjs17.0.0-typed/js/src
+export JS=$GTbranch/mozjs17.0.0-typed/js/src
 
 #RISCV
 export PATH=$RISCV/bin:$PATH
