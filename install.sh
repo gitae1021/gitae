@@ -43,3 +43,9 @@ sudo apt-get install ./teamviewer_i386.deb
 
 ibus-setup
 sudo gedit /etc/default/avahi-daemon
+
+
+# Remainders
+# vivado ID:gitae1021
+# ssh key in e-mail
+# Hangul setting - Ref. Bookmark
