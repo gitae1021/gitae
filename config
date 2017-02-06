@@ -1,0 +1,68 @@
+###################################################
+#
+# ARC
+#
+###################################################
+
+Host SVN
+    HostName 147.46.219.120
+    User gitae1021
+    IdentityFile ~/.ssh/gt
+
+# Host arc-pub
+    # HostName 147.46.174.119
+    # IdentityFile ~/.ssh/arc.key
+    # LocalForward 2222 147.46.114.130:22
+    # User arcuser
+  
+# Host c6
+    # HostName 147.46.114.137
+    # User sungmin
+
+# Host c7
+    # HostName 147.46.114.130
+    # User channoh
+    # IdentityFile ~/.ssh/c7.key
+    # ForwardX11 yes
+    # ForwardX11Trusted yes
+
+# Host c7-tunnel
+    # HostName localhost
+    # Port 2222
+    # User channoh
+    # IdentityFile ~/.ssh/c7.key
+    # ForwardX11 yes
+    # ForwardX11Trusted yes
+
+Host zynq0
+    HostName 147.46.174.231
+    User root
+
+Host zynq1
+    HostName 147.46.174.222
+    User root
+
+
+Host zynq2
+    HostName 147.46.174.221
+    User root
+
+Host zynq3
+    HostName 147.46.174.193
+    User root
+
+Host zynq4
+    HostName 147.46.174.185
+    User root
+
+Host zynq5
+    HostName 147.46.174.183
+    User root
+
+Host zynq6
+    HostName 147.46.174.182
+    User root
+
+Host nh
+    HostName 147.46.174.66
+
