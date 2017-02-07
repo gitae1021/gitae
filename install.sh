@@ -1,13 +1,17 @@
 # #!/bin/bash
 echo vim ssh subversion
 sudo apt-get install vim ssh subversion 
+sudo apt-get install exuberant-ctags
+
 echo controller
 sudo apt-get install dconf-editor gnome-tweak-tool 
 sudo apt-get install compizconfig-settings-manager 
 sudo apt-get install nautilus-open-terminal nautilus-actions 
+
 echo git sshpass chrome
 sudo apt-get install git sshpass
 sudo apt-get install chromium-browser
+
 echo for rocket
 sudo apt-get install python-software-properties
 sudo add-apt-repository ppa:webupd8team/java
