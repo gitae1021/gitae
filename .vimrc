@@ -25,6 +25,7 @@ filetype plugin indent on    " required
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+set mouse=a
 set nocompatible	"vi와 호환하지 않음
 set encoding=utf-8
 set fencs=utf-8,euc-kr,utf-16le
