@@ -7,6 +7,7 @@ echo controller
 sudo apt-get install dconf-editor gnome-tweak-tool 
 sudo apt-get install compizconfig-settings-manager 
 sudo apt-get install nautilus-open-terminal nautilus-actions 
+sudo apt-get install libgnome2-bin
 
 echo git sshpass chrome
 sudo apt-get install git sshpass
