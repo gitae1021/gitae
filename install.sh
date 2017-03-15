@@ -20,6 +20,7 @@ sudo apt-get install oracle-java8-installer
 sudo apt-get install autoconf automake autotools-dev curl libmpc-dev libmpfr-dev
 sudo apt-get install libgmp-dev gawk build-essential bison flex texinfo gperf
 sudo apt-get install lib32z1 lib32ncurses5 lib32bz2-1.0
+sudo apt-get install u-boot-tools
 
 sudo apt-get update
 sudo apt-get upgrade
