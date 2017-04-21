@@ -1,4 +1,8 @@
 # #!/bin/bash
+
+sudo apt-get update
+sudo apt-get upgrade
+
 echo vim ssh subversion
 sudo apt-get install vim ssh subversion 
 sudo apt-get install exuberant-ctags
@@ -10,8 +14,9 @@ sudo apt-get install nautilus-open-terminal nautilus-actions
 sudo apt-get install libgnome2-bin
 
 echo git sshpass chrome
-sudo apt-get install git sshpass
-sudo apt-get install chromium-browser
+sudo apt-get install git sshpass 
+sudo apt-get install chromium-browser 
+sudo apt-get install tmux
 
 echo for rocket
 sudo apt-get install python-software-properties
@@ -45,7 +50,8 @@ sudo apt-get update
 echo teamviwer
 
 wget http://download.teamviewer.com/download/teamviewer_i386.deb
-sudo apt-get install ./teamviewer_i386.deb
+sudo apt-get install -f
+sudo dpkg -i teamviewer_i386.deb
 
 ibus-setup
 sudo gedit /etc/default/avahi-daemon
