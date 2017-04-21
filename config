@@ -33,6 +33,16 @@ Host SVN
     # IdentityFile ~/.ssh/c7.key
     # ForwardX11 yes
     # ForwardX11Trusted yes
+    
+Host digital-system
+    HostName 147.46.114.94
+    Port 7000
+    User student9
+
+Host Flash
+    HostName 147.46.78.51
+    Port 44444
+    User fac2017
 
 Host zynq0
     HostName 147.46.174.231
@@ -65,4 +75,8 @@ Host zynq6
 
 Host nh
     HostName 147.46.174.66
+    User gimnamho
 
+Host hg
+    HostName 147.46.114.137
+    User hg32bit
