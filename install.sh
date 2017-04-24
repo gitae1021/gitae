@@ -56,6 +56,9 @@ sudo dpkg -i teamviewer_i386.deb
 ibus-setup
 sudo gedit /etc/default/avahi-daemon
 
+echo virtualbox
+
+sudo apt-get install virtualbox
 
 # Remainders
 # vivado ID:gitae1021
