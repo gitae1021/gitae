@@ -124,6 +124,7 @@ export Home2=/media/arc-gt/a0e83a30-376a-453e-a853-97531be6b81d
 export Svnroot=$Home2/svnroot
 export Branch=$Svnroot/projects/typedarch/branches
 export GTbranch=$Svnroot/projects/typedarch/branches/gitae
+export SCD=$GTbranch/scd
 export CN=$Svnroot/projects/typedarch/branches/channoh
 # export Gem5=$Typedisa/gem5/src
 export Papers=$Svnroot/papers
@@ -139,17 +140,26 @@ export PATH=/home/arc-gt/Downloads/Xilinx_Vivado_SDK_Lin_2015.2_0612_1/tps/lnx64
 #export PATH=/home/papl-gt/git/rocket-chip/fpga-zynq/common/linux-xlnx/scripts/dtc:$PATH && dtc -I dts -O dtb -o deliver_output/devicetree.dtb soft_config/zc706_devicetree.dts
 
 #Rocket & Emulator & FPGA & Lua & JS
+#CN
 # export Rocket=$CN/typed/rocket-chip/rocket/src/main/scala #Typed-CN
 # export Emulator=$CN/typed/rocket-chip/emulator
 # export FPGA=$CN/typed/rocket-chip/fpga-zynq/zc706
 # export Lua=$CN/typed/lua-5.3.0/src
 # export JS=$CN/typed/mozjs17.0.0/js/src
-export Rocket=$GTbranch/rocket-chip-final/rocket/src/main/scala # -CN
-export Emulator=$GTbranch/rocket-chip-final/emulator
-export FPGA=$GTbranch/rocket-chip-final/fpga-zynq/zc706
-export Lua=$GTbranch/lua-5.3.0-typed/src
-export JS=$GTbranch/mozjs17.0.0-typed/js/src
 
+#GT
+# export Rocket=$GTbranch/rocket-chip-final/rocket/src/main/scala
+# export Emulator=$GTbranch/rocket-chip-final/emulator
+# export FPGA=$GTbranch/rocket-chip-final/fpga-zynq/zc706
+# export Lua=$GTbranch/lua-5.3.0-typed/src
+# export JS=$GTbranch/mozjs17.0.0-typed/js/src
+
+#SCD
+export Rocket=$SCD/rocket-chip/rocket/src/main/scala 
+export Emulator=$SCD/rocket-chip/emulator
+export FPGA=$SCD/rocket-chip/fpga-zynq/zc706
+export Lua=$SCD/lua-5.3.0/src
+export JS=$SCD/mozjs17.0.0/js/src
 #RISCV
 export PATH=$RISCV/bin:$PATH
 # export RISCV=$CN/typed/rocket-chip/riscv #unified Typedisa
@@ -159,7 +169,8 @@ export PATH=$RISCV/bin:$PATH
 # export RISCV=$CN/rocket-chip-checkedload4lua/riscv #Checked-load-lua
 # export RISCV=$CN/rocket-chip-checkedload4js/riscv #Checked-load-js
 # export RISCV=$Branch/asplos17/source/hw/rocket-chip-typed4lua/riscv #Checked-load-lua
-export RISCV=$GTbranch/rocket-chip-final/riscv #My branch rocket
+# export RISCV=$GTbranch/rocket-chip-final/riscv #My branch rocket
+export RISCV=$SCD/rocket-chip/riscv #My branch rocket
 
 #tmux
 export TERM=xterm-256color
