@@ -59,7 +59,7 @@ set mps+=<:>            " 괄호 짝 <> 추가
 " Tags and filetype
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+"You must have .viminfo (i.e. .viminfo's owner is you, not root)
 au BufRead *
 			\ if &filetype != 'svn' && line("'\"") > 0 && line("'\"") <= line("$") |
 			\    exe "norm g'\"" |
