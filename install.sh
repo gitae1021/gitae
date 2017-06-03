@@ -60,6 +60,10 @@ echo virtualbox
 
 sudo apt-get install virtualbox
 
+echo dswp
+sudo apt-get install libreadline-dev
+
+
 # Remainders
 # vivado ID:gitae1021
 # ssh key in e-mail
