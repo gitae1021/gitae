@@ -63,6 +63,11 @@ sudo apt-get install virtualbox
 echo dswp
 sudo apt-get install libreadline-dev
 
+echo gem5
+sudo apt-get install scons
+sudo apt-get install swig
+sudo apt-get install python-dev
+sudo apt-get install zlib1g-dev
 
 # Remainders
 # vivado ID:gitae1021
