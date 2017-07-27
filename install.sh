@@ -68,6 +68,8 @@ sudo apt-get install scons
 sudo apt-get install swig
 sudo apt-get install python-dev
 sudo apt-get install zlib1g-dev
+sudo apt-get install mercurial
+sudo apt-get install  gcc-arm-linux-gnueabihf gcc-aarch64-linux-gnu device-tree-compiler
 
 # Remainders
 # vivado ID:gitae1021
