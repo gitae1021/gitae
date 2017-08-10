@@ -126,10 +126,50 @@ export Branch=$Svnroot/projects/typedarch/branches
 export GTbranch=$Svnroot/projects/typedarch/branches/gitae
 export SCD=$GTbranch/scd
 export CN=$Svnroot/projects/typedarch/branches/channoh
+export GEM5=$GTbranch/hw-dswp/gem5
+# export GEM5=$GTbranch/hw-dswp/2nd-gem5
+# export GEM5=$GTbranch/hw-dswp/3rd-gem5
+# export GEM5=$GTbranch/dswp/gem5-15.04.15
+# export GEM5=$GTbranch/dswp/gem5-14.12.14
 # export Gem5=$Typedisa/gem5/src
 export Papers=$Svnroot/papers
 export trunks=$Svnroot/projects/typedarch/trunks
 export Synthesis=$Svnroot/projects/typedarch/trunks/synthesis
+
+function extract() {
+    if [[ -f $1 ]]; then
+        case $1 in 
+            *.tar.bz2)  tar xjf $1      ;;
+            *.tar.gz)   tar xzf $1      ;;
+            *.bz2)      bunzip2 $1      ;;
+            *.rar)      unrar e $1      ;;
+            *.gz)       gunzip $1       ;;
+            *.tar)      tar xf $1       ;;
+            *.tbz2)     tar xjf $1      ;;
+            *.tgz)      tar xzf $1      ;;
+            *.zip)      unzip $1        ;;
+            *.Z)        uncompress $1   ;;
+            *.7z)       7z x $1         ;;
+            *.tar.xz)   tar xfJ $1     ;;
+            *)          echo "'$1' cannot be extracted via extract()" ;;
+        esac
+    else
+        echo "'$1' is not a vaild file"
+    fi
+}
+
+function compress() {
+    if [[ -e $2 ]]; then
+        case $1 in 
+            *.tar.bz2)  tar -jcvf $1 $2 ;;
+            *.tar.gz)   tar -zcvf $1 $2 ;;
+            *.zip)      zip -r $1 $2        ;;
+            *)          echo "'$2' cannot be compressed via compress()" ;;
+        esac
+    else
+        echo "'$1' is not a vaild file"
+    fi
+}
 
 #Vivado
 export PATH=/opt/Xilinx/Vivado/2015.2/bin:$PATH
@@ -155,14 +195,22 @@ export PATH=/home/arc-gt/Downloads/Xilinx_Vivado_SDK_Lin_2015.2_0612_1/tps/lnx64
 # export JS=$GTbranch/mozjs17.0.0-typed/js/src
 
 #SCD
-export Rocket=$SCD/rocket-chip/rocket/src/main/scala 
-export Emulator=$SCD/rocket-chip/emulator
-export FPGA=$SCD/rocket-chip/fpga-zynq/zc706
+# export Rocket=$SCD/rocket-chip/rocket/src/main/scala 
+# export Emulator=$SCD/rocket-chip/emulator
+# export FPGA=$SCD/rocket-chip/fpga-zynq/zc706
+# export Lua=$SCD/lua-5.3.0/src
+# export JS=$SCD/mozjs17.0.0/js/src
+
+#rocc
+export Rocket=$GTbranch/rocket-chip-base/rocket/src/main/scala 
+export Emulator=$GTbranch/rocket-chip-base/emulator
+export FPGA=$GTbranch/rocket-chip-base/fpga-zynq/zc706
 export Lua=$SCD/lua-5.3.0/src
 export JS=$SCD/mozjs17.0.0/js/src
+
 #RISCV
 export PATH=$RISCV/bin:$PATH
-# export RISCV=$CN/typed/rocket-chip/riscv #unified Typedisa
+export RISCV=$CN/typed/rocket-chip/riscv #unified Typedisa
 # export RISCV=$CN/rocket-chip-typed4js/riscv #old js ver typedisa
 # export RISCV=~/git/rocket/riscv #old lua ver typedisa
 # export RISCV=$trunks/rocket-chip/riscv #trunk
@@ -170,7 +218,12 @@ export PATH=$RISCV/bin:$PATH
 # export RISCV=$CN/rocket-chip-checkedload4js/riscv #Checked-load-js
 # export RISCV=$Branch/asplos17/source/hw/rocket-chip-typed4lua/riscv #Checked-load-lua
 # export RISCV=$GTbranch/rocket-chip-final/riscv #My branch rocket
-export RISCV=$SCD/rocket-chip/riscv #My branch rocket
+# export RISCV=$SCD/rocket-chip/riscv #scd compiler
+# export RISCV=$GTbranch/rocket-chip-base/riscv #rocc test compiler
+
+#cross compiler
+export PATH=~/ct-ng.comp:$PATH
+export PATH=$GTbranch/crosstool-ng-1.23.0/.build/arm-unknown-linux-gnueabi/buildtools/bin:$PATH
 
 #tmux
 export TERM=xterm-256color
@@ -186,9 +239,13 @@ alias SVN="ssh gitae1021@147.46.219.120"
 alias scp-synthesis="scp -P 2222 Top.DefaultVLSIConfig.v papl-s1@115.145.211.12:~"
 
 #gem5 alias
-# alias gem5alpha="$GEM5/build/ALPHA/gem5.opt $GEM5/configs/example/se.py --cpu-type=MinorCPU --caches --l2cache --l1i_size='16kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=4 --l2_size='128kB' --l2_assoc=8"
+alias gem5arm="$GEM5/build/ARM/gem5.opt $GEM5/configs/example/se.py" 
+alias O3CPU="$GEM5/build/ARM/gem5.opt $GEM5/configs/example/se.py --cpu-type=DerivO3CPU --caches --l2cache --l1i_size='16kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=4 --l2_size='128kB' --l2_assoc=8 "
+alias MinorCPU="$GEM5/build/ARM/gem5.opt $GEM5/configs/example/se.py --cpu-type=MinorCPU --caches --l2cache --l1i_size='16kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=4 --l2_size='128kB' --l2_assoc=8 "
 
-# alias gem5debug="$GEM5/build/ALPHA/gem5.opt --debug-flags=Exec,IntRegs,TagRegs $GEM5/configs/example/se.py --cpu-type=MinorCPU --caches --l2cache --l1i_size='16kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=4 --l2_size='128kB' --l2_assoc=8"
+alias O3CPUdebug="$GEM5/build/ARM/gem5.debug $GEM5/configs/example/se.py --cpu-type=DerivO3CPU --caches --l2cache --l1i_size='16kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=4 --l2_size='128kB' --l2_assoc=8"
+
+alias O3CPUdebugflags="$GEM5/build/ARM/gem5.debug --debug-flags=ARCL,IQ $GEM5/configs/example/se.py --cpu-type=DerivO3CPU --caches --l2cache --l1i_size='16kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=4 --l2_size='128kB' --l2_assoc=8"
 
 # alias gem5papl="$GEM5/build/ALPHA/gem5.opt --debug-flags=Papl $GEM5/configs/example/se.py --cpu-type=MinorCPU --caches --l2cache --l1i_size='16kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=4 --l2_size='128kB' --l2_assoc=8"
 

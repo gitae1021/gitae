@@ -26,6 +26,7 @@ filetype plugin indent on    " required
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set mouse=a
+set expandtab
 set nocompatible	"vi와 호환하지 않음
 set encoding=utf-8
 set fencs=utf-8,euc-kr,utf-16le
@@ -59,7 +60,7 @@ set mps+=<:>            " 괄호 짝 <> 추가
 " Tags and filetype
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"You must have .viminfo (i.e. .viminfo's owner is you, not root)
+
 au BufRead *
 			\ if &filetype != 'svn' && line("'\"") > 0 && line("'\"") <= line("$") |
 			\    exe "norm g'\"" |
@@ -86,7 +87,7 @@ augroup Filetype
 	au BufRead,BufNewFile	*.bb						set filetype=sh
 	au BufRead,BufNewFile	*.bbclass					set filetype=python
 	au BufRead,BufNewFile	*.isa						set filetype=cpp 
-				\ | exec ":call SyntaxRange#Include('^def', '}}', 'python')"
+				" \ | exec ":call SyntaxRange#Include('^def', '}}', 'python')"
 	au BufRead,BufNewFile	*.{patch,diff}				set filetype=diff
 				\ | set noexpandtab
 
