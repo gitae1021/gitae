@@ -34,10 +34,10 @@ Host SVN
     # ForwardX11 yes
     # ForwardX11Trusted yes
     
-Host digital-system
-    HostName 147.46.114.94
-    Port 7000
-    User student9
+# Host digital-system
+    # HostName 147.46.114.94
+    # Port 7000
+    # User student9
 
 Host Flash
     HostName 147.46.78.51

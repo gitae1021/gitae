@@ -13,6 +13,15 @@ sudo apt-get install compizconfig-settings-manager
 sudo apt-get install nautilus-open-terminal nautilus-actions 
 sudo apt-get install libgnome2-bin
 
+echo teamviwer
+
+wget http://download.teamviewer.com/download/teamviewer_i386.deb
+sudo apt-get install -f
+sudo dpkg -i teamviewer_i386.deb
+
+ibus-setup
+sudo gedit /etc/default/avahi-daemon
+
 echo git sshpass chrome
 sudo apt-get install git sshpass 
 sudo apt-get install chromium-browser 
@@ -47,14 +56,6 @@ sudo add-apt-repository universe
 sudo apt-get purge unity-webapps-common
 sudo apt-get update
 
-echo teamviwer
-
-wget http://download.teamviewer.com/download/teamviewer_i386.deb
-sudo apt-get install -f
-sudo dpkg -i teamviewer_i386.deb
-
-ibus-setup
-sudo gedit /etc/default/avahi-daemon
 
 echo virtualbox
 
@@ -69,10 +70,11 @@ sudo apt-get install swig
 sudo apt-get install python-dev
 sudo apt-get install zlib1g-dev
 sudo apt-get install mercurial
-sudo apt-get install  gcc-arm-linux-gnueabihf gcc-aarch64-linux-gnu device-tree-compiler
+# sudo apt-get install gcc-arm-linux-gnueabihf gcc-aarch64-linux-gnu device-tree-compiler
+sudo apt-get install gcc-arm-linux-gnueabi
 sudo apt-get install libgoogle-perftools-dev
 
 # Remainders
 # vivado ID:gitae1021
-# ssh key in e-mail
+# ssh key in google drive
 # Hangul setting - Ref. Bookmark

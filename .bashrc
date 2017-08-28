@@ -120,7 +120,7 @@ export PS1="\[\e[36;1m\]\u@\[\e[32;1m\]\h:\[\e[31;1m\]\w:> \[\e[0m\]"
 
 export PATH=/usr/local/texlive/2016/bin/x86_64-linux/":$PATH"
 #Svnroots
-export Home2=/media/arc-gt/a0e83a30-376a-453e-a853-97531be6b81d
+export Home2=/media/arcgt/a0e83a30-376a-453e-a853-97531be6b81d
 export Svnroot=$Home2/svnroot
 export Branch=$Svnroot/projects/typedarch/branches
 export GTbranch=$Svnroot/projects/typedarch/branches/gitae
