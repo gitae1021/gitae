@@ -74,6 +74,10 @@ sudo apt-get install mercurial
 sudo apt-get install gcc-arm-linux-gnueabi
 sudo apt-get install libgoogle-perftools-dev
 
+echo compiler
+sudo apt-get install libtool
+sudo apt-get install libncurses5-dev
+
 # Remainders
 # vivado ID:gitae1021
 # ssh key in google drive
