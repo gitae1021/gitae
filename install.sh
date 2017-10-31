@@ -78,6 +78,9 @@ echo compiler
 sudo apt-get install libtool
 sudo apt-get install libncurses5-dev
 
+echo gnuplot
+sudo apt-get install gnuplot
+
 # Remainders
 # vivado ID:gitae1021
 # ssh key in google drive
