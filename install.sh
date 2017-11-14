@@ -81,6 +81,15 @@ sudo apt-get install libncurses5-dev
 echo gnuplot
 sudo apt-get install gnuplot
 
+echo apache2
+sudo apt-get install apache2
+# use /var/www/html directory
+# remove index.html
+# copy file that want to see
+# now, you can see the file through web browser (address: ip)
+
+
+
 # Remainders
 # vivado ID:gitae1021
 # ssh key in google drive
