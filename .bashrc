@@ -126,7 +126,7 @@ export Branch=$Svnroot/projects/typedarch/branches
 export GTbranch=$Svnroot/projects/typedarch/branches/gitae
 export SCD=$GTbranch/scd
 export CN=$Svnroot/projects/typedarch/branches/channoh
-export GEM5=$GTbranch/hw-dswp/gem5
+export GEM5=$GTbranch/dswp-hw-tomasulo-final/gem5
 # export GEM5=$GTbranch/hw-dswp/2nd-gem5
 # export GEM5=$GTbranch/hw-dswp/3rd-gem5
 # export GEM5=$GTbranch/dswp/gem5-15.04.15
@@ -223,7 +223,8 @@ export RISCV=$CN/typed/rocket-chip/riscv #unified Typedisa
 
 #cross compiler
 export PATH=~/ct-ng.comp:$PATH
-export PATH=$PATH:/opt/arm-unknown-linux-gnueabi/bin
+export PATH=/opt/arm-unknown-linux-gnueabi/bin:$PATH
+# export PATH=/home/arcgt/arm-unknown-linux-gnueabi/bin:$PATH
 
 #tmux
 export TERM=xterm-256color
@@ -245,7 +246,10 @@ alias MinorCPU="$GEM5/build/ARM/gem5.opt $GEM5/configs/example/se.py --cpu-type=
 alias O3CPUdebug="$GEM5/build/ARM/gem5.debug $GEM5/configs/example/se.py --cpu-type=DerivO3CPU --caches --l2cache --l1i_size='16kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=4 --l2_size='128kB' --l2_assoc=8"
 alias O3CPUdebugflags="$GEM5/build/ARM/gem5.debug --debug-flags=ARCL,IQ $GEM5/configs/example/se.py --cpu-type=DerivO3CPU --caches --l2cache --l1i_size='16kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=4 --l2_size='128kB' --l2_assoc=8"
 
-alias gem5ARC="$GEM5/build/ARM/gem5.opt $GEM5/configs/example/se.py --cpu-type=arm_detailed --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
+alias gem5optARC="$GEM5/build/ARM/gem5.opt $GEM5/configs/example/se.py --cpu-type=arm_detailed --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
+alias gem5optflagsARC="$GEM5/build/ARM/gem5.opt --debug-flags=Tomasulo $GEM5/configs/example/se.py --cpu-type=arm_detailed --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
+alias gem5optTimelineARC="$GEM5/build/ARM/gem5.opt --debug-flags=Timeline $GEM5/configs/example/se.py --cpu-type=arm_detailed --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
 alias gem5debugARC="$GEM5/build/ARM/gem5.debug $GEM5/configs/example/se.py --cpu-type=arm_detailed --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
-# alias gem5papl="$GEM5/build/ALPHA/gem5.opt --debug-flags=Papl $GEM5/configs/example/se.py --cpu-type=MinorCPU --caches --l2cache --l1i_size='16kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=4 --l2_size='128kB' --l2_assoc=8"
+alias gem5debugflagsARC="$GEM5/build/ARM/gem5.debug --debug-flags=Tomasulo $GEM5/configs/example/se.py --cpu-type=arm_detailed --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
+alias gem5fastARC="$GEM5/build/ARM/gem5.fast $GEM5/configs/example/se.py --cpu-type=arm_detailed --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
 
