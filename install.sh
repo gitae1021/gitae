@@ -88,7 +88,8 @@ sudo apt-get install apache2
 # copy file that want to see
 # now, you can see the file through web browser (address: ip)
 
-
+echo ETC
+sudo apt-get install htop
 
 # Remainders
 # vivado ID:gitae1021
