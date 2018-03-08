@@ -90,6 +90,8 @@ sudo apt-get install apache2
 
 echo ETC
 sudo apt-get install htop
+sudo apt-get insatll cgdb
+sudo apt-get install screen
 
 # Remainders
 # vivado ID:gitae1021
