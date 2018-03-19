@@ -50,6 +50,7 @@ wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
 tar -xzf install-tl-unx.tar.gz
 cd install-tl-$today
 sudo ./install-tl
+sudo apt-get install texlive-fonts-recommended texlive-latex-recommended  texlive-science
 
 echo open terminal
 sudo add-apt-repository universe
