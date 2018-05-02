@@ -3,6 +3,7 @@ cp -r .vim ~
 cp .vimrc ~
 cp .tmux.conf ~
 cp .ctags ~
+mkdir ~/.ssh
 cp config ~/.ssh
 cp install.sh ~
 sudo cp -r colors/ /usr/share/vim/vim74

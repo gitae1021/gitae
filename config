@@ -9,41 +9,6 @@ Host SVN
     User gitae1021
     IdentityFile ~/.ssh/gt
 
-# Host arc-pub
-    # HostName 147.46.174.119
-    # IdentityFile ~/.ssh/arc.key
-    # LocalForward 2222 147.46.114.130:22
-    # User arcuser
-  
-# Host c6
-    # HostName 147.46.114.137
-    # User sungmin
-
-# Host c7
-    # HostName 147.46.114.130
-    # User channoh
-    # IdentityFile ~/.ssh/c7.key
-    # ForwardX11 yes
-    # ForwardX11Trusted yes
-
-# Host c7-tunnel
-    # HostName localhost
-    # Port 2222
-    # User channoh
-    # IdentityFile ~/.ssh/c7.key
-    # ForwardX11 yes
-    # ForwardX11Trusted yes
-    
-# Host digital-system
-    # HostName 147.46.114.94
-    # Port 7000
-    # User student9
-
-Host Flash
-    HostName 147.46.78.51
-    Port 44444
-    User fac2017
-
 Host zynq0
     HostName 147.46.174.231
     User root
@@ -72,11 +37,3 @@ Host zynq5
 Host zynq6
     HostName 147.46.174.182
     User root
-
-Host nh
-    HostName 147.46.174.66
-    User gimnamho
-
-Host hg
-    HostName 147.46.114.137
-    User hg32bit

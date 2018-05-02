@@ -22,8 +22,8 @@ sudo dpkg -i teamviewer_i386.deb
 ibus-setup
 sudo gedit /etc/default/avahi-daemon
 
-echo git sshpass chrome
-sudo apt-get install git sshpass 
+echo sshpass chrome
+sudo apt-get install sshpass 
 sudo apt-get install chromium-browser 
 sudo apt-get install tmux
 
@@ -58,9 +58,8 @@ sudo apt-get purge unity-webapps-common
 sudo apt-get update
 
 
-echo virtualbox
-
-sudo apt-get install virtualbox
+# echo virtualbox
+# sudo apt-get install virtualbox
 
 echo dswp
 sudo apt-get install libreadline-dev
