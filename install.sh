@@ -78,6 +78,9 @@ echo compiler
 sudo apt-get install libtool
 sudo apt-get install libncurses5-dev
 
+echo mcpat
+sudo apt-get install gcc-multilib g++-multilib
+
 # echo gnuplot
 # sudo apt-get install gnuplot
 
