@@ -91,6 +91,15 @@ sudo apt-get install apache2
 # copy file that want to see
 # now, you can see the file through web browser (address: ip)
 
+echo CUDA
+wget http://developer.download.nvidia.com/compute/cuda/4_2/rel/toolkit/cudatoolkit_4.2.9_linux_64_ubuntu11.04.run
+chmod +x cudatoolkit_4.2.9_linux_64_ubuntu11.04.run
+echo please enter install path: /usr/local
+sudo ./cudatoolkit_4.2.9_linux_64_ubuntu11.04.run
+
+echo gpgpu-sim
+sudo apt-get install build-essential xutils-dev bison zlib1g-dev flex bison libxmu-dev libxi-dev freeglut3 freeglut3-dev binutils-gold
+
 echo ETC
 sudo apt-get install htop
 sudo apt-get install cgdb

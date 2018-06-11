@@ -126,7 +126,14 @@ export Branch=$Svnroot/projects/typedarch/branches
 export GTbranch=$Svnroot/projects/typedarch/branches/gitae
 export SCD=$GTbranch/scd
 export CN=$Svnroot/projects/typedarch/branches/channoh
-export GEM5=$GTbranch/dswp-hw-tomasulo-final/gem5
+# export GEM5=$CN/dswp-worksharing/gem5
+export GEM5=$GTbranch/thesis-BEE/gem5
+# export GEM5=$GTbranch/old-dswp-micro2018/gem5
+# export GEM5=$CN/dswp-o3/gem5
+# export GEM5=$GTbranch/dswp-o3-r13120/gem5
+# export GEM5=$GTbranch/dswp-o3/gem5
+# export GEM5=$GTbranch/blp/apply_big.LITTLE/gem5
+# export GEM5=$GTbranch/dswp-hw-tomasulo-final/gem5
 # export GEM5=$GTbranch/hw-dswp/2nd-gem5
 # export GEM5=$GTbranch/hw-dswp/3rd-gem5
 # export GEM5=$GTbranch/dswp/gem5-15.04.15
@@ -176,8 +183,12 @@ export PATH=/opt/Xilinx/Vivado/2015.2/bin:$PATH
 export PATH=/opt/Xilinx/SDK/2015.2/bin:$PATH
 export PATH=/opt/Xilinx/SDK/2015.2/gnu/arm/lin/bin:$PATH
 export PATH=/home/arcgt/Downloads/Xilinx_Vivado_SDK_Lin_2015.2_0612_1/tps/lnx64/jre/bin:$PATH 
-
 #export PATH=/home/papl-gt/git/rocket-chip/fpga-zynq/common/linux-xlnx/scripts/dtc:$PATH && dtc -I dts -O dtb -o deliver_output/devicetree.dtb soft_config/zc706_devicetree.dts
+
+#CUDA
+export PATH=/usr/local/cuda/bin:$PATH
+export CUDA_INSTALL_PATH=/usr/local/cuda
+export LD_LIBRARY_PATH=/usr/local/cuda/lib:/usr/local/cuda/lib64
 
 #Rocket & Emulator & FPGA & Lua & JS
 #CN
@@ -229,27 +240,24 @@ export PATH=/opt/arm-unknown-linux-gnueabi/bin:$PATH
 #tmux
 export TERM=xterm-256color
 alias tmux="tmux -2"
-alias tmux-open="tmux attach -t 0"
+alias tmux-open0="tmux attach -t 0"
+alias tmux-open1="tmux attach -t 1"
+alias tmux-open2="tmux attach -t 2"
 
 #basic alias
 alias open='gnome-open' 
 alias SVN="ssh gitae1021@147.46.219.120"
-
 # alias dirdiff="vim -c DirDiff"/media/arc-gt/a0e83a30-376a-453e-a853-97531be6b81d/svnroot/projects/typedarch/branches/riscv/mozjs17.0.0/js/src/ /media/arc-gt/a0e83a30-376a-453e-a853-97531be6b81d/svnroot/projects/typedarch/branches/channoh/typed/mozjs17.0.0/js/src/""
 #Synthesis alias
 alias scp-synthesis="scp -P 2222 Top.DefaultVLSIConfig.v papl-s1@115.145.211.12:~"
 
 #gem5 alias
-alias gem5arm="$GEM5/build/ARM/gem5.opt $GEM5/configs/example/se.py" 
-alias O3CPU="$GEM5/build/ARM/gem5.opt $GEM5/configs/example/se.py --cpu-type=DerivO3CPU --caches --l2cache --l1i_size='16kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=4 --l2_size='128kB' --l2_assoc=8 "
-alias MinorCPU="$GEM5/build/ARM/gem5.opt $GEM5/configs/example/se.py --cpu-type=MinorCPU --caches --l2cache --l1i_size='16kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=4 --l2_size='128kB' --l2_assoc=8 "
-alias O3CPUdebug="$GEM5/build/ARM/gem5.debug $GEM5/configs/example/se.py --cpu-type=DerivO3CPU --caches --l2cache --l1i_size='16kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=4 --l2_size='128kB' --l2_assoc=8"
-alias O3CPUdebugflags="$GEM5/build/ARM/gem5.debug --debug-flags=ARCL,IQ $GEM5/configs/example/se.py --cpu-type=DerivO3CPU --caches --l2cache --l1i_size='16kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=4 --l2_size='128kB' --l2_assoc=8"
-
-alias gem5optARC="$GEM5/build/ARM/gem5.opt $GEM5/configs/example/se.py --cpu-type=arm_detailed --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
-alias gem5optflagsARC="$GEM5/build/ARM/gem5.opt --debug-flags=Tomasulo $GEM5/configs/example/se.py --cpu-type=arm_detailed --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
-alias gem5optTimelineARC="$GEM5/build/ARM/gem5.opt --debug-flags=Timeline $GEM5/configs/example/se.py --cpu-type=arm_detailed --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
-alias gem5debugARC="$GEM5/build/ARM/gem5.debug $GEM5/configs/example/se.py --cpu-type=arm_detailed --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
-alias gem5debugflagsARC="$GEM5/build/ARM/gem5.debug --debug-flags=Tomasulo $GEM5/configs/example/se.py --cpu-type=arm_detailed --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
-alias gem5fastARC="$GEM5/build/ARM/gem5.fast $GEM5/configs/example/se.py --cpu-type=arm_detailed --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
-
+alias gem5optARC="$GEM5/build/ARM/gem5.opt $GEM5/configs/example/se.py --cpu-type=ex5_big --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
+alias gem5optflagsARC="$GEM5/build/ARM/gem5.opt --debug-flags=Tomasulo $GEM5/configs/example/se.py --cpu-type=ex5_big --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
+alias gem5optTimelineARC="$GEM5/build/ARM/gem5.opt --debug-flags=Timeline $GEM5/configs/example/se.py --cpu-type=ex5_big --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
+alias gem5optTimelineRSARC="$GEM5/build/ARM/gem5.opt --debug-flags=Timeline,RS $GEM5/configs/example/se.py --cpu-type=ex5_big --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
+alias gem5debugARC="$GEM5/build/ARM/gem5.debug $GEM5/configs/example/se.py --cpu-type=ex5_big --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
+alias gem5debugflagsARC="$GEM5/build/ARM/gem5.debug --debug-flags=Tomasulo $GEM5/configs/example/se.py --cpu-type=ex5_big --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
+alias gem5debugTimelineARC="$GEM5/build/ARM/gem5.debug --debug-flags=Timeline $GEM5/configs/example/se.py --cpu-type=ex5_big --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
+alias gem5debugTimelineRSARC="$GEM5/build/ARM/gem5.debug --debug-flags=Timeline,RS $GEM5/configs/example/se.py --cpu-type=ex5_big --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
+alias watch-tail="watch -n1 tail -n10"
