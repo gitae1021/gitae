@@ -2,20 +2,20 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Plugin 'VundleVim/Vundle.vim'
 
 
 ""dirdff
-Plugin 'will133/vim-dirdiff'
-let g:DirDiffExcludes = ".svn,tags,*.pyc"
+" Plugin 'will133/vim-dirdiff'
+" let g:DirDiffExcludes = ".svn,tags,*.pyc"
 
-call vundle#end()            " required
+" call vundle#end()            " required
 filetype plugin indent on    " required
 
 
@@ -74,13 +74,11 @@ augroup Filetype
 	au BufRead,BufNewFile	*.{ll,bc}					set filetype=llvm
 	au BufRead,BufNewFile	*.td						set filetype=tablegen
 	au BufRead,BufNewFile	*.rst						set filetype=rest
-	au BufRead,BufNewFile	*.html						set filetype=html
 	au BufRead,BufNewFile	*.scala						set filetype=scala
 	au BufRead,BufNewFile	*.tex						set filetype=tex
 	au BufRead,BufNewFile	*.md						set filetype=markdown
 	au BufRead,BufNewFile	*.{gnuplot,gp}				set filetype=gnuplot
 	" au BufRead,BufNewFile config                    set filetype=config
-	au BufRead,BufNewFile	*.cl						set filetype=opencl
 	au BufRead,BufNewFile	*.{dat,data,csv}			set filetype=csv
 	au BufRead,BufNewFile	*.gdb						set filetype=gdb
 	au BufRead,BufNewFile	*.python					set filetype=python
@@ -102,8 +100,8 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set t_Co=256
-colorscheme molokai
-" colorscheme peachpuff 
+" colorscheme molokai
+colorscheme peachpuff 
 set colorcolumn=80
 
 hi SpecialKey       ctermfg=239
@@ -142,7 +140,7 @@ let t:Space=" "
 
 augroup AutoComment
 	au!
-	au FileType c,cpp,verilog,php,javascript,html,idl,opencl,css,scala
+	au FileType c,cpp,verilog,php,javascript,idl,css,scala
 				\ let t:Comment='//'      |
 				\ let t:Uncomment='\/\/'
 	au FileType asm,sh,python,bash,ruby,perl
@@ -164,23 +162,6 @@ augroup AutoComment
 	au FileType lua
 				\ let t:Comment='--'     |
 				\ let t:Uncomment='--'   
-augroup END
-
-let t:compile_cmd="make"
-augroup SmartConfig
-	au BufRead,BufNewFile $GEM5/*
-				\	let t:compile_cmd="cd $GEM5 && scons build/ALPHA/gem5.opt -j4"
-				\ | set tags +=$BRANCH/gem5/src/tags
-	au BufRead,BufNewFile $BRANCH/lua-5.3.0/*		set ts=2 sw=2 sts=2
-				\ | set tags +=$BRANCH/
-	au BufRead,BufNewFile $BRANCH/mozjs17.0.0/*
-				\	let t:compile_cmd="cd $BRANCH/mozjs17.0.0/js/src/alpha && ./build.sh"
-				\ | set tags +=$BRANCH/mozjs17.0.0/js/src/tags
-	au BufRead,BufNewFile */alphaev67*
-				\	set noexpandtab
-				\ | set tabstop=8
-				\ |	set shiftwidth=8
-				\ | set softtabstop=8
 augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -211,25 +192,7 @@ nmap ga <Plug>(EasyAlign)))
 
 
 command! Trim       :%s/\s\+$//
-command! Html       :call Html()
-command! CSVAlign   :call CSVAlign()
 command! CommentToggle   :call CommentToggle()
-command! Make   :call SmartCompile()
-
-
-let g:html_font='Consolas'
-function! Html()
-	exe ':IndentLinesDisable'
-	exe ':set nonu'
-	exe ':colorscheme github'
-	exe ':runtime! /syntax/2html.vim'
-endfunction
-
-
-function! CSVAlign()
-	exe ':silent %!column -t'
-endfunction
-
 
 function! CommentToggle()
 	if getline(".") =~ '^\s*'.t:Uncomment.t:Space
@@ -254,10 +217,6 @@ function! CopyToggle()
 	endif
 endfunction
 
-function! Syntax()
-	exe ':syntax sync fromstart'
-endfunction
-
 function! Color()
 	let num = 255
 	while num >= 0
@@ -267,8 +226,3 @@ function! Color()
 		let num = num - 1
 	endwhile
 endfunction
-
-function! SmartCompile()
-	exe ':!'.t:compile_cmd
-endfunction
-

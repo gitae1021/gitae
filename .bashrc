@@ -118,31 +118,6 @@ export PS1="\[\e[36;1m\]\u@\[\e[32;1m\]\h:\[\e[31;1m\]\w:> \[\e[0m\]"
 
 #location shortcuts
 
-export PATH=/usr/local/texlive/2016/bin/x86_64-linux/":$PATH"
-#Svnroots
-export Home2=/media/arcgt/a0e83a30-376a-453e-a853-97531be6b81d
-export Svnroot=$Home2/svnroot
-export Branch=$Svnroot/projects/typedarch/branches
-export GTbranch=$Svnroot/projects/typedarch/branches/gitae
-export SCD=$GTbranch/scd
-export CN=$Svnroot/projects/typedarch/branches/channoh
-# export GEM5=$CN/dswp-worksharing/gem5
-export GEM5=$GTbranch/thesis-BEE/gem5
-# export GEM5=$GTbranch/old-dswp-micro2018/gem5
-# export GEM5=$CN/dswp-o3/gem5
-# export GEM5=$GTbranch/dswp-o3-r13120/gem5
-# export GEM5=$GTbranch/dswp-o3/gem5
-# export GEM5=$GTbranch/blp/apply_big.LITTLE/gem5
-# export GEM5=$GTbranch/dswp-hw-tomasulo-final/gem5
-# export GEM5=$GTbranch/hw-dswp/2nd-gem5
-# export GEM5=$GTbranch/hw-dswp/3rd-gem5
-# export GEM5=$GTbranch/dswp/gem5-15.04.15
-# export GEM5=$GTbranch/dswp/gem5-14.12.14
-# export Gem5=$Typedisa/gem5/src
-export Papers=$Svnroot/papers
-export trunks=$Svnroot/projects/typedarch/trunks
-export Synthesis=$Svnroot/projects/typedarch/trunks/synthesis
-
 function extract() {
     if [[ -f $1 ]]; then
         case $1 in 
@@ -178,65 +153,6 @@ function compress() {
     fi
 }
 
-#Vivado
-export PATH=/opt/Xilinx/Vivado/2015.2/bin:$PATH
-export PATH=/opt/Xilinx/SDK/2015.2/bin:$PATH
-export PATH=/opt/Xilinx/SDK/2015.2/gnu/arm/lin/bin:$PATH
-export PATH=/home/arcgt/Downloads/Xilinx_Vivado_SDK_Lin_2015.2_0612_1/tps/lnx64/jre/bin:$PATH 
-#export PATH=/home/papl-gt/git/rocket-chip/fpga-zynq/common/linux-xlnx/scripts/dtc:$PATH && dtc -I dts -O dtb -o deliver_output/devicetree.dtb soft_config/zc706_devicetree.dts
-
-#CUDA
-export PATH=/usr/local/cuda/bin:$PATH
-export CUDA_INSTALL_PATH=/usr/local/cuda
-export LD_LIBRARY_PATH=/usr/local/cuda/lib:/usr/local/cuda/lib64
-
-#Rocket & Emulator & FPGA & Lua & JS
-#CN
-# export Rocket=$CN/typed/rocket-chip/rocket/src/main/scala #Typed-CN
-# export Emulator=$CN/typed/rocket-chip/emulator
-# export FPGA=$CN/typed/rocket-chip/fpga-zynq/zc706
-# export Lua=$CN/typed/lua-5.3.0/src
-# export JS=$CN/typed/mozjs17.0.0/js/src
-
-#GT
-# export Rocket=$GTbranch/rocket-chip-final/rocket/src/main/scala
-# export Emulator=$GTbranch/rocket-chip-final/emulator
-# export FPGA=$GTbranch/rocket-chip-final/fpga-zynq/zc706
-# export Lua=$GTbranch/lua-5.3.0-typed/src
-# export JS=$GTbranch/mozjs17.0.0-typed/js/src
-
-#SCD
-# export Rocket=$SCD/rocket-chip/rocket/src/main/scala 
-# export Emulator=$SCD/rocket-chip/emulator
-# export FPGA=$SCD/rocket-chip/fpga-zynq/zc706
-# export Lua=$SCD/lua-5.3.0/src
-# export JS=$SCD/mozjs17.0.0/js/src
-
-#rocc
-export Rocket=$GTbranch/rocket-chip-base/rocket/src/main/scala 
-export Emulator=$GTbranch/rocket-chip-base/emulator
-export FPGA=$GTbranch/rocket-chip-base/fpga-zynq/zc706
-export Lua=$SCD/lua-5.3.0/src
-export JS=$SCD/mozjs17.0.0/js/src
-
-#RISCV
-export PATH=$RISCV/bin:$PATH
-export RISCV=$CN/typed/rocket-chip/riscv #unified Typedisa
-# export RISCV=$CN/rocket-chip-typed4js/riscv #old js ver typedisa
-# export RISCV=~/git/rocket/riscv #old lua ver typedisa
-# export RISCV=$trunks/rocket-chip/riscv #trunk
-# export RISCV=$CN/rocket-chip-checkedload4lua/riscv #Checked-load-lua
-# export RISCV=$CN/rocket-chip-checkedload4js/riscv #Checked-load-js
-# export RISCV=$Branch/asplos17/source/hw/rocket-chip-typed4lua/riscv #Checked-load-lua
-# export RISCV=$GTbranch/rocket-chip-final/riscv #My branch rocket
-# export RISCV=$SCD/rocket-chip/riscv #scd compiler
-# export RISCV=$GTbranch/rocket-chip-base/riscv #rocc test compiler
-
-#cross compiler
-export PATH=~/ct-ng.comp:$PATH
-export PATH=/opt/arm-unknown-linux-gnueabi/bin:$PATH
-# export PATH=/home/arcgt/arm-unknown-linux-gnueabi/bin:$PATH
-
 #tmux
 export TERM=xterm-256color
 alias tmux="tmux -2"
@@ -246,18 +162,5 @@ alias tmux-open2="tmux attach -t 2"
 
 #basic alias
 alias open='gnome-open' 
-alias SVN="ssh gitae1021@147.46.219.120"
 # alias dirdiff="vim -c DirDiff"/media/arc-gt/a0e83a30-376a-453e-a853-97531be6b81d/svnroot/projects/typedarch/branches/riscv/mozjs17.0.0/js/src/ /media/arc-gt/a0e83a30-376a-453e-a853-97531be6b81d/svnroot/projects/typedarch/branches/channoh/typed/mozjs17.0.0/js/src/""
 #Synthesis alias
-alias scp-synthesis="scp -P 2222 Top.DefaultVLSIConfig.v papl-s1@115.145.211.12:~"
-
-#gem5 alias
-alias gem5optARC="$GEM5/build/ARM/gem5.opt $GEM5/configs/example/se.py --cpu-type=ex5_big --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
-alias gem5optflagsARC="$GEM5/build/ARM/gem5.opt --debug-flags=Tomasulo $GEM5/configs/example/se.py --cpu-type=ex5_big --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
-alias gem5optTimelineARC="$GEM5/build/ARM/gem5.opt --debug-flags=Timeline $GEM5/configs/example/se.py --cpu-type=ex5_big --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
-alias gem5optTimelineRSARC="$GEM5/build/ARM/gem5.opt --debug-flags=Timeline,RS $GEM5/configs/example/se.py --cpu-type=ex5_big --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
-alias gem5debugARC="$GEM5/build/ARM/gem5.debug $GEM5/configs/example/se.py --cpu-type=ex5_big --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
-alias gem5debugflagsARC="$GEM5/build/ARM/gem5.debug --debug-flags=Tomasulo $GEM5/configs/example/se.py --cpu-type=ex5_big --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
-alias gem5debugTimelineARC="$GEM5/build/ARM/gem5.debug --debug-flags=Timeline $GEM5/configs/example/se.py --cpu-type=ex5_big --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
-alias gem5debugTimelineRSARC="$GEM5/build/ARM/gem5.debug --debug-flags=Timeline,RS $GEM5/configs/example/se.py --cpu-type=ex5_big --cpu-clock='2.0GHz' --caches --l1i_size='32kB' --l1i_assoc=2 --l1d_size='32kB' --l1d_assoc=2 --l2cache --l2_size='2MB' --l2_assoc=16"
-alias watch-tail="watch -n1 tail -n10"
